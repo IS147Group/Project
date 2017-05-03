@@ -107,98 +107,119 @@ public class Project {
     }
 
     static boolean winCheck_UpDn(char _board[][], int _row, int _column, char _currentPiece){
-        int i = 1;
-        int j = _row - 1;
-        int k = _row - 2;
-        int l = _row - 3;
-        int jj = _row + 1;
-        int kk = _row + 2;
-        int ll = _row + 3;
 
-        if ((l >= 0 & l <= 5)){if ((_board[l][_column]) == _currentPiece){i++;}}
-        if ((k >= 0 & k <= 5)){if ((_board[k][_column]) == _currentPiece){i++;}}
-        if ((j >= 0 & j <= 5)){if ((_board[j][_column]) == _currentPiece){i++;}}
-        if ((jj >= 0 & jj <= 5)){if ((_board[jj][_column]) == _currentPiece){i++;}}
-        if ((kk >= 0 & kk <= 5)){if ((_board[kk][_column]) == _currentPiece){i++;}}
-        if ((ll >= 0 & ll <= 5)){if ((_board[ll][_column]) == _currentPiece){i++;}}
 
-        if (i >= 4)
-            return true;
-        else return false;
+        for (int i = 0; i <_board.length - 3; i++){
+
+            if (_board[i][_column] == _currentPiece){
+
+                if (_board[i + 1][_column] == _currentPiece){
+
+                    if (_board[i + 2][_column] == _currentPiece){
+
+                        if (_board[i + 3][_column] == _currentPiece){
+
+                            return true;
+
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+
+        return false;
     }
 
     static boolean winCheck_LR(char _board[][], int _row, int _column, char _currentPiece){
-        int i = 1;
-        int m = _column - 1;
-        int n = _column - 2;
-        int o = _column - 3;
-        int mm = _column + 1;
-        int nn = _column + 2;
-        int oo = _column + 3;
 
-        if (m >= 0 & m <= 6){if ((_board[_row][m]) == _currentPiece){i++;}}
-        if (n >= 0 & n <= 6){if ((_board[_row][n]) == _currentPiece){i++;}}
-        if (o >= 0 & o <= 6){if ((_board[_row][o]) == _currentPiece){i++;}}
-        if (mm >= 0 & mm <= 6){if ((_board[_row][mm]) == _currentPiece){i++;}}
-        if (nn >= 0 & nn <= 6){if ((_board[_row][nn]) == _currentPiece){i++;}}
-        if (oo >= 0 & oo <= 6){if ((_board[_row][oo]) == _currentPiece){i++;}}
 
-        if (i >= 4)
-            return true;
-        else return false;
+        for (int i = 0; i < _board[_row].length - 3; i++){
+
+            if (_board[_row][i] == _currentPiece){
+
+                if (_board[_row][i + 1] == _currentPiece){
+
+                    if (_board[_row][i + 2] == _currentPiece){
+
+                        if (_board[_row][i + 3] == _currentPiece){
+
+                            return true;
+
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+
+        return false;
+
     }
 
     static boolean winCheck_DiagLRDn(char _board[][], int _row, int _column, char _currentPiece){
-        int i = 1;
-        int j = _row - 1;
-        int k = _row - 2;
-        int l = _row - 3;
-        int jj = _row + 1;
-        int kk = _row + 2;
-        int ll = _row + 3;
-        int m = _column - 1;
-        int n = _column - 2;
-        int o = _column - 3;
-        int mm = _column + 1;
-        int nn = _column + 2;
-        int oo = _column + 3;
 
-        if ((l >= 0 & l <= 5) & (o >= 0 & o <= 6)){if ((_board[l][o]) == _currentPiece){i++;}}
-        if ((k >= 0 & k <= 5) & (n >= 0 & n <= 6)){if ((_board[k][n]) == _currentPiece){i++;}}
-        if ((j >= 0 & j <= 5) & (m >= 0 & m <= 6)){if ((_board[j][m]) == _currentPiece){i++;}}
-        if ((jj >= 0 & jj <= 5) & (mm >= 0 & mm <= 6)){if ((_board[jj][mm]) == _currentPiece){i++;}}
-        if ((kk >= 0 & kk <= 5) & (nn >= 0 & nn <= 6)){if ((_board[kk][nn]) == _currentPiece){i++;}}
-        if ((ll >= 0 & ll <= 5) & (oo >= 0 & oo <= 6)){if ((_board[ll][oo]) == _currentPiece){i++;}}
+        for (int i = 0; i < _board.length - 3; i++) {
 
-        if (i >= 4)
-            return true;
-        else return false;
+
+            for (int j = 0; j < _board[_row].length - 3; j++) {
+
+                if (_board[i][j] == _currentPiece) {
+
+                    if (_board[i + 1][j + 1] == _currentPiece) {
+
+                        if (_board[i + 2][j + 2] == _currentPiece) {
+
+                            if (_board[i + 3][j + 3] == _currentPiece) {
+
+                                return true;
+
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+
+        return false;
     }
 
     static boolean winCheck_DiagLRUp(char _board[][], int _row, int _column, char _currentPiece){
-        int i = 1;
-        int j = _row - 1;
-        int k = _row - 2;
-        int l = _row - 3;
-        int jj = _row + 1;
-        int kk = _row + 2;
-        int ll = _row + 3;
-        int m = _column - 1;
-        int n = _column - 2;
-        int o = _column - 3;
-        int mm = _column + 1;
-        int nn = _column + 2;
-        int oo = _column + 3;
 
-        if ((j >= 0 & j <= 5) & (mm >= 0 & mm <= 6)){if ((_board[j][mm]) == _currentPiece){i++;}}
-        if ((k >= 0 & k <= 5) & (nn >= 0 & nn <= 6)){if ((_board[k][nn]) == _currentPiece){i++;}}
-        if ((l >= 0 & l <= 5) & (oo >= 0 & oo <= 6)){if ((_board[l][oo]) == _currentPiece){i++;}}
-        if ((jj >= 0 & jj <= 5) & (m >= 0 & m <= 6)){if ((_board[jj][m]) == _currentPiece){i++;}}
-        if ((kk >= 0 & kk <= 5) & (n >= 0 & n <= 6)){if ((_board[kk][n]) == _currentPiece){i++;}}
-        if ((ll >= 0 & ll <= 5) & (o >= 0 & o <= 6)){if ((_board[ll][o]) == _currentPiece){i++;}}
+        for (int i = _board.length - 1; i > 2; i--) {
 
-        if (i >= 4)
-            return true;
-        else return false;
+
+            for (int j = 0; j < _board[_row].length - 3; j++) {
+
+                if (_board[i][j] == _currentPiece) {
+
+                    if (_board[i - 1][j + 1] == _currentPiece) {
+
+                        if (_board[i - 2][j + 2] == _currentPiece) {
+
+                            if (_board[i - 3][j + 3] == _currentPiece) {
+
+                                return true;
+
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+
+        return false;
     }
 }
