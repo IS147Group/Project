@@ -1,13 +1,10 @@
 package com.company;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
-
 @SuppressWarnings("resource")
+
 public class Project {
-
-
     public static void main(String[] args) {
         char board[][] = new char[6][7];
         //fill board with empty spaces and output the board.
@@ -21,31 +18,38 @@ public class Project {
             }
             System.out.println();
         }
+        
+        Scanner input = new Scanner(System.in);
+        
         System.out.println("_____________\n1 2 3 4 5 6 7");
         System.out.println("   Columns   \n");
-        System.out.println("Player 1 is 'X'\nPlayer 2 is 'O'\n");
+        
+        System.out.println("Player 1, enter your name: ");
+        Player player1 = new Player(input.next(), 'X');
+        System.out.println("Player 2, enter your name: ");
+        Player player2 = new Player(input.next(), 'O');
+        
+        System.out.println("\n" + player1.getName() + " is " + player1.getPlayerPiece());
+        System.out.println(player2.getName() + " is " + player2.getPlayerPiece());
         System.out.println("First player who gets four in a row (up/down/diagonally) wins.\n");
 
-        Scanner input = new Scanner(System.in);
         boolean win = false;
-        char player1Piece = 'X';
-        char player2Piece = 'O';
-        char currentPiece = player2Piece;
+        char currentPiece = player2.getPlayerPiece();
         int column = 0;
         int row = 0;
         int i = 0;
 
         do {
-            if (currentPiece == player2Piece) {
-                currentPiece = player1Piece;
-            } else if (currentPiece == player1Piece) {
-                currentPiece = player2Piece;
+            if (currentPiece == player2.getPlayerPiece()) {
+                currentPiece = player1.getPlayerPiece();
+            } else if (currentPiece == player1.getPlayerPiece()) {
+                currentPiece = player2.getPlayerPiece();
             }
 
-            if (currentPiece == player1Piece) {
-                System.out.println("Player 1: Place your piece in a column.");
-            } else if (currentPiece == player2Piece) {
-                System.out.println("Player 2: Place your piece in a column.");
+            if (currentPiece == player1.getPlayerPiece()) {
+                System.out.println(player1.getName() + ": Place your piece in a column.");
+            } else if (currentPiece == player2.getPlayerPiece()) {
+                System.out.println(player2.getName() + ": Place your piece in a column.");
             }
             column = input.nextInt() - 1;
             System.out.println("\n");
@@ -54,10 +58,10 @@ public class Project {
             while ((column > 6 || column < 0) || (board[0][column] == 'X' || board[0][column] == 'O')) {
                 System.out.println("Invalid entry. Try again.");
 
-                if (currentPiece == player1Piece) {
-                    System.out.println("Player 1: Place your piece in a column.");
-                } else if (currentPiece == player2Piece) {
-                    System.out.println("Player 2: Place your piece in a column.");
+                if (currentPiece == player1.getPlayerPiece()) {
+                    System.out.println(player1.getName() + ": Place your piece in a column.");
+                } else if (currentPiece == player2.getPlayerPiece()) {
+                    System.out.println(player2.getName() + ": Place your piece in a column.");
                 }
                 column = input.nextInt() - 1;
                 System.out.println("\n");
@@ -99,16 +103,10 @@ public class Project {
         System.out.println("GAME OVER");
         if (winCheck.checkFull(board) == true) {
             System.out.println("The board is full.\nThe game is a draw.");
-        } else if (currentPiece == player1Piece) {
-            System.out.println("Player 1 WINS!\nCongratulations!");
-        } else if (currentPiece == player2Piece) {
-            System.out.println("Player 2 WINS!\nCongratulations!");
+        } else if (currentPiece == player1.getPlayerPiece()) {
+            System.out.println(player1.getName() + " WINS!\nCongratulations!");
+        } else if (currentPiece == player2.getPlayerPiece()) {
+            System.out.println(player2.getName() + " WINS!\nCongratulations!");
         }
     }
-
-
 }
-
-
-
-
