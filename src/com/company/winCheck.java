@@ -1,6 +1,7 @@
 package com.company;
+
 public class winCheck {
-	
+
     static boolean winCheck_UpDn(char _board[][], int _row, int _column, char _currentPiece) {
         for (int i = 0; i < _board.length - 3; i++) {
             if (_board[i][_column] == _currentPiece) {
@@ -15,6 +16,7 @@ public class winCheck {
         }
         return false;
     }
+
     static boolean winCheck_LR(char _board[][], int _row, int _column, char _currentPiece) {
         for (int i = 0; i < _board[_row].length - 3; i++) {
             if (_board[_row][i] == _currentPiece) {
@@ -29,6 +31,7 @@ public class winCheck {
         }
         return false;
     }
+
     static boolean winCheck_DiagLRDn(char _board[][], int _row, int _column, char _currentPiece) {
         for (int i = 0; i < _board.length - 3; i++) {
             for (int j = 0; j < _board[_row].length - 3; j++) {
@@ -45,6 +48,7 @@ public class winCheck {
         }
         return false;
     }
+
     static boolean winCheck_DiagLRUp(char _board[][], int _row, int _column, char _currentPiece) {
         for (int i = _board.length - 1; i > 2; i--) {
             for (int j = 0; j < _board[_row].length - 3; j++) {
@@ -61,6 +65,7 @@ public class winCheck {
         }
         return false;
     }
+
     static boolean checkFull(char _board[][]) {
         int k = 0;
         for (int i = 0; i < _board.length; i++) {
