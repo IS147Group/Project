@@ -1,7 +1,7 @@
 package com.company;
-
 import java.util.Arrays;
 import java.util.Scanner;
+
 @SuppressWarnings("resource")
 
 public class Project {
@@ -38,6 +38,7 @@ public class Project {
         int column = 0;
         int row = 0;
         int i = 0;
+        long start = gameTime.setCurrentTime();
 
         do {
             if (currentPiece == player2.getPlayerPiece()) {
@@ -108,5 +109,9 @@ public class Project {
         } else if (currentPiece == player2.getPlayerPiece()) {
             System.out.println(player2.getName() + " WINS!\nCongratulations!");
         }
+
+        long end = gameTime.setCurrentTime();
+        gameTime.totalTime(end, start);
+        gameTime.getCurrentTime(end);
     }
 }

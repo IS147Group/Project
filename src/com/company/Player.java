@@ -1,4 +1,5 @@
 package com.company;
+
 class Player extends Person {
 	 private char playerPiece;
 
